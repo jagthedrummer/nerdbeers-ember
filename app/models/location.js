@@ -6,8 +6,5 @@ var Location = DS.Model.extend({
   url: DS.attr('string')
 });
 
-Location.reopenClass({
-  FIXTURES: []
-});
 
 export default Location;
