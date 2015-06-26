@@ -4,6 +4,8 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'nerdbeers-ember',
     environment: environment,
+    contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
+    firebase: 'https://nerdbeers.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
