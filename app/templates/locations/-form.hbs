@@ -1,23 +1,23 @@
 <form {{action "save" on="submit"}}>
-  <div>
+  <div class="form-group">
     <label>
       Name
       {{input type="text" value=model.name}}
     </label>
   </div>
-  <div>
+  <div class="form-group">
     <label>
       Address
       {{input type="text" value=model.address}}
     </label>
   </div>
-  <div>
+  <div class="form-group">
     <label>
       Url
       {{input type="text" value=model.url}}
     </label>
   </div>
-  <div>
+  <div class="form-group">
     <input type="submit" value="Save">
   </div>
 </form>
