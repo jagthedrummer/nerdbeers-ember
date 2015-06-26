@@ -17,4 +17,16 @@ export default Router.map(function() {
       path: ":location_id"
     });
   });
+
+  this.resource("meetings", function() {
+    this.route("new");
+
+    this.route("edit", {
+      path: ":meeting_id/edit"
+    });
+
+    this.route("show", {
+      path: ":meeting_id"
+    });
+  });
 });

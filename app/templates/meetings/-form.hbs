@@ -1,0 +1,22 @@
+<form {{action "save" on="submit"}}>
+  <div>
+    <label>
+      Date
+      {{input type="text" value=model.date}}
+    </label>
+  </div>
+  <div>
+    <label>
+      Location
+      {{view "select"
+       class='form-control'
+       selection=model.location
+       content=model.locations
+       optionValuePath="content.id"
+       optionLabelPath="content.name"}}
+    </label>
+  </div>
+  <div>
+    <input type="submit" value="Save">
+  </div>
+</form>
