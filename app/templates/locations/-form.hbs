@@ -1,0 +1,23 @@
+<form {{action "save" on="submit"}}>
+  <div>
+    <label>
+      Name
+      {{input type="text" value=model.name}}
+    </label>
+  </div>
+  <div>
+    <label>
+      Address
+      {{input type="text" value=model.address}}
+    </label>
+  </div>
+  <div>
+    <label>
+      Url
+      {{input type="text" value=model.url}}
+    </label>
+  </div>
+  <div>
+    <input type="submit" value="Save">
+  </div>
+</form>

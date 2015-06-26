@@ -1,0 +1,54 @@
+<h1>Locations list</h1>
+
+<p>
+  {{link-to "New Location" "locations.new" }}
+</p>
+
+{{#if model.length}}
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Address
+        </th>
+        <th>
+          Url
+        </th>
+        <th colspan="3">
+          Actions
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each location in model}}
+        <tr>
+          <td>
+            {{location.name}}
+          </td>
+          <td>
+            {{location.address}}
+          </td>
+          <td>
+            {{location.url}}
+          </td>
+          <td>
+            {{link-to "Edit" "locations.edit" location}}
+          </td>
+          <td>
+            {{link-to "Show" "locations.show" location}}
+          </td>
+          <td>
+            <a href="#" {{action "remove" location}}>Remove</a>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  <p id="blankslate">
+    No Locations found
+  </p>
+{{/if}}
