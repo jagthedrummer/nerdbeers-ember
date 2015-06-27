@@ -29,4 +29,16 @@ export default Router.map(function() {
       path: ":meeting_id"
     });
   });
+
+  this.resource("pairings", function() {
+    this.route("new");
+
+    this.route("edit", {
+      path: ":pairing_id/edit"
+    });
+
+    this.route("show", {
+      path: ":pairing_id"
+    });
+  });
 });
