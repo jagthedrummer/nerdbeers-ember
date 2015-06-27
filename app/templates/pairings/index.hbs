@@ -1,11 +1,11 @@
 <h1>Pairings list</h1>
 
 <p>
-  {{link-to "New Pairing" "pairings.new" }}
+  {{link-to "New Pairing" "pairings.new" class='btn btn-primary'}}
 </p>
 
 {{#if model.length}}
-  <table>
+  <table class="table table-striped">
     <thead>
       <tr>
         <th>
@@ -29,13 +29,13 @@
             {{pairing.topic}}
           </td>
           <td>
-            {{link-to "Edit" "pairings.edit" pairing}}
+            {{link-to "Edit" "pairings.edit" pairing class='btn btn-xs btn-info'}}
           </td>
           <td>
-            {{link-to "Show" "pairings.show" pairing}}
+            {{link-to "Show" "pairings.show" pairing class='btn btn-xs btn-default'}}
           </td>
           <td>
-            <a href="#" {{action "remove" pairing}}>Remove</a>
+            <a href="#" {{action "remove" pairing}} class='btn btn-xs btn-danger'>Remove</a>
           </td>
         </tr>
       {{/each}}

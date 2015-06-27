@@ -16,6 +16,22 @@
        optionLabelPath="content.name"}}
     </label>
   </div>
+  <div class="pairings">
+    <h3>Pairings</h3>
+    <a class='btn btn-default' {{action 'newPairing'}}>Add a pairing</a>
+    {{#each pairing in model.pairings}}
+      <div>
+        <label>
+          Beer
+          {{input type="text" value=pairing.beer}}
+        </label>
+        <label>
+          Topic
+          {{input type="text" value=pairing.topic}}
+        </label>
+      </div>
+    {{/each}}
+  </div>
   <div>
     <input type="submit" value="Save">
   </div>

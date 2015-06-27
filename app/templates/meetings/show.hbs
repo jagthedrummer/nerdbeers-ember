@@ -14,3 +14,8 @@
   <span>{{model.location.name}}</span>
 </p>
 
+<ol>
+{{#each pairing in model.pairings}}
+  <li>{{pairing.beer}} : {{pairing.topic}}</li>
+{{/each}}
+</ol>
