@@ -1,11 +1,11 @@
 <h1>Meetings list</h1>
 
 <p>
-  {{link-to "New Meeting" "meetings.new" }}
+  {{link-to "New Meeting" "meetings.new" class='btn btn-primary'}}
 </p>
 
 {{#if model.length}}
-  <table>
+  <table class="table table-striped">
     <thead>
       <tr>
         <th>
@@ -29,13 +29,13 @@
             {{meeting.location.name}}
           </td>
           <td>
-            {{link-to "Edit" "meetings.edit" meeting.id}}
+            {{link-to "Edit" "meetings.edit" meeting.id class='btn btn-xs btn-info'}}
           </td>
           <td>
-            {{link-to "Show" "meetings.show" meeting}}
+            {{link-to "Show" "meetings.show" meeting class='btn btn-xs btn-default'}}
           </td>
           <td>
-            <a href="#" {{action "remove" meeting}}>Remove</a>
+            <a href="#" {{action "remove" meeting}} class='btn btn-xs btn-danger'>Remove</a>
           </td>
         </tr>
       {{/each}}
