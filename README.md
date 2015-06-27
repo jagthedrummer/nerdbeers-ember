@@ -1,7 +1,10 @@
 # Nerdbeers-ember
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Just an experiment at using Ember and Firebase to build a simple app.
+
+This is not at all meant to disparage the fine work of the NerdBeers
+development and operations team. It's only an experiment and not a
+suggestion to change anything.
 
 ## Prerequisites
 
