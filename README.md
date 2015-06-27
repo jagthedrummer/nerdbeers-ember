@@ -6,6 +6,10 @@ This is not at all meant to disparage the fine work of the NerdBeers
 development and operations team. It's only an experiment and not a
 suggestion to change anything.
 
+You can see the app running here:
+
+<https://nerdbeers.firebaseapp.com/>
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
