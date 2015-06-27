@@ -29,7 +29,17 @@ You will need the following things properly installed on your computer.
 
 Make use of the many generators for code, try `ember help generate` for more details
 
+In particular `ember g scaffold` is very useful. You'd do something like
+this:
+
+```
+ember g scaffold location name address url
+```
+
 ### Running Tests
+
+Running with the `--server` flag is th way to see the super cool browser
+based test runner.
 
 * `ember test`
 * `ember test --server`
