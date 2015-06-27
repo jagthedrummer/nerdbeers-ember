@@ -22,6 +22,19 @@ export default Ember.Mixin.create({
     newPairing: function(){
       var pairing = this.store.createRecord('pairing');
       this.currentModel.get('pairings').addObject(pairing);
+    },
+    addLocation: function(){
+      var locationName = prompt("What's the name of the new location?");
+      if(!locationName){
+        return;
+      }
+      var location = this.store.createRecord('location',{name:locationName});
+      var route = this;
+      location.save().then(function(location){
+        console.log('done saving');
+        route.currentModel.set('location',location);
+      });
+      
     }
   },
   deactivate: function() {

@@ -9,11 +9,14 @@
     <label>
       Location
       {{view "select"
-       class='form-control'
-       selection=model.location
-       content=model.locations
-       optionValuePath="content.id"
-       optionLabelPath="content.name"}}
+        class='form-control'
+        selection=model.location
+        content=model.locations
+        prompt="Please select a location"
+        optionValuePath="content.id"
+        optionLabelPath="content.name"}}
+
+        <a class='btn btn-default' {{action 'addLocation'}}>Add a new location</a>
     </label>
   </div>
   <div class="pairings">
@@ -33,6 +36,6 @@
     {{/each}}
   </div>
   <div>
-    <input type="submit" value="Save">
+    <input type="submit" value="Save" class="btn btn-primary">
   </div>
 </form>
