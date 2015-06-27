@@ -30,7 +30,6 @@ module('Acceptance: Location', {
 
 test('visiting /locations without data', function(assert) {
   visit('/locations');
-
   andThen(function() {
     assert.equal(currentPath(), 'locations.index');
     assert.equal(find('#blankslate').text().trim(), 'No Locations found');

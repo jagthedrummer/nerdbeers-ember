@@ -20,6 +20,8 @@ module('Acceptance: Meeting', {
       confirmCalledWith = [].slice.call(arguments);
       return true;
     };
+    defineFixturesFor('meeting', []);
+    defineFixturesFor('location', []);
   },
   afterEach: function() {
     Ember.run(application, 'destroy');
@@ -38,7 +40,8 @@ test('visiting /meetings without data', function(assert) {
 });
 
 test('visiting /meetings with data', function(assert) {
-  defineFixturesFor('meeting', [{ id: 1, date: new Date(), location: 'MyString' }]);
+  defineFixturesFor('meeting', [{ id: 1, date: new Date(), location: 1}]);
+  defineFixturesFor('location', [{ id: 1, name:'Red Pin'}]);
   visit('/meetings');
 
   andThen(function() {
@@ -56,7 +59,7 @@ test('create a new meeting', function(assert) {
     assert.equal(currentPath(), 'meetings.new');
 
     fillIn('label:contains(Date) input', new Date());
-    fillIn('label:contains(Location) input', 'MyString');
+    //fillIn('label:contains(Location) input', 'MyString');
 
     click('input:submit');
   });
@@ -68,7 +71,9 @@ test('create a new meeting', function(assert) {
 });
 
 test('update an existing meeting', function(assert) {
-  defineFixturesFor('meeting', [{ id: 1 }]);
+  defineFixturesFor('meeting', [{ id: 1, date: new Date(), location: 1}]);
+  defineFixturesFor('location', [{ id: 1, name:'Red Pin'}]);
+
   visit('/meetings');
   click('a:contains(Edit)');
 
@@ -76,7 +81,7 @@ test('update an existing meeting', function(assert) {
     assert.equal(currentPath(), 'meetings.edit');
 
     fillIn('label:contains(Date) input', new Date());
-    fillIn('label:contains(Location) input', 'MyString');
+    //fillIn('label:contains(Location) input', 'MyString');
 
     click('input:submit');
   });
@@ -88,20 +93,25 @@ test('update an existing meeting', function(assert) {
 });
 
 test('show an existing meeting', function(assert) {
-  defineFixturesFor('meeting', [{ id: 1, date: new Date(), location: 'MyString' }]);
+  var date = new Date();
+  defineFixturesFor('meeting', [{ id: 1, date: date, location: 1}]);
+  defineFixturesFor('location', [{ id: 1, name:'Red Pin'}]);
+
   visit('/meetings');
   click('a:contains(Show)');
 
   andThen(function() {
     assert.equal(currentPath(), 'meetings.show');
 
-    assert.equal(find('p strong:contains(Date:)').next().text(), new Date());
-    assert.equal(find('p strong:contains(Location:)').next().text(), 'MyString');
+    assert.equal(find('p strong:contains(Date:)').next().text(), date);
+    assert.equal(find('p strong:contains(Location:)').next().text(), 'Red Pin');
   });
 });
 
 test('delete a meeting', function(assert) {
-  defineFixturesFor('meeting', [{ id: 1, date: new Date(), location: 'MyString' }]);
+  defineFixturesFor('meeting', [{ id: 1, date: new Date(), location: 1}]);
+  defineFixturesFor('location', [{ id: 1, name:'Red Pin'}]);
+
   visit('/meetings');
   click('a:contains(Remove)');
 
