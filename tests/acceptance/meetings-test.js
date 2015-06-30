@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
 import startApp from '../helpers/start-app';
+import stubAuth from '../helpers/authentication';
 
 var application;
 var originalConfirm;
@@ -23,6 +24,7 @@ module('Acceptance: Meeting', {
     defineFixturesFor('meeting', []);
     defineFixturesFor('location', []);
     defineFixturesFor('pairing', []);
+    stubAuth(application);
   },
   afterEach: function() {
     Ember.run(application, 'destroy');

@@ -6,6 +6,10 @@ module.exports = function(environment) {
     environment: environment,
     contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
     firebase: 'https://nerdbeers.firebaseio.com/',
+    torii: {
+      // a 'session' property will be injected on routes and controllers
+      sessionServiceName: 'session'
+    },
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {

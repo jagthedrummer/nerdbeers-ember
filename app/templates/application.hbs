@@ -25,7 +25,15 @@
     </nav>
 
     <div class="container-fluid">
-      {{liquid-outlet}}
+
+      {{#if session.isAuthenticated}}
+        {{liquid-outlet}}
+      {{else}}
+        <button {{action "signIn" "github"}}>Sign in with github</button>
+        <button {{action "signIn" "facebook"}}>Sign in with facebook</button>
+        <button {{action "signIn" "twitter"}}>Sign in with twitter</button>
+        <button {{action "signIn" "google"}}>Sign in with google</button>
+      {{/if}}
       <!--
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">

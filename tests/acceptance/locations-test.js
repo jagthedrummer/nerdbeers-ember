@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
 import startApp from '../helpers/start-app';
+import stubAuth from '../helpers/authentication';
 
 var application;
 var originalConfirm;
@@ -20,6 +21,7 @@ module('Acceptance: Location', {
       confirmCalledWith = [].slice.call(arguments);
       return true;
     };
+    stubAuth(application);
   },
   afterEach: function() {
     Ember.run(application, 'destroy');
