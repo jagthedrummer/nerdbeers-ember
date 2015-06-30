@@ -8,8 +8,8 @@ module.exports = function(environment) {
       //'default-src': "'none'",
       'script-src': "'self' 'unsafe-inline' https://*.firebaseio.com",
       //'font-src': "'self'",
-      'connect-src': "'self' wss://*.firebaseio.com"
-      //'img-src': "'self' http://images0.cloudhdr.com http://images1.cloudhdr.com http://images2.cloudhdr.com http://images3.cloudhdr.com",
+      'connect-src': "'self' wss://*.firebaseio.com",
+      'img-src': "'self' data:"
       //'style-src': "'self' 'unsafe-inline'",
       //'media-src': "'self'"
     },
