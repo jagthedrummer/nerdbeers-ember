@@ -35,6 +35,8 @@
     "ember-data": "1.0.0-beta.16.1",
     "ember-export-application-global": "^1.0.2",
     "emberfire": "1.4.7",
-    "liquid-fire": "0.19.4"
+    "liquid-fire": "0.19.4",
+    "torii": "0.4.1",
+    "torii-fire": "0.2.2"
   }
 }
