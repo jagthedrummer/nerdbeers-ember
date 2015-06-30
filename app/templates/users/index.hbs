@@ -1,0 +1,39 @@
+<h1>Users list</h1>
+
+
+{{#if model.length}}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>
+          Handle
+        </th>
+        <th colspan="3">
+          Actions
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each user in model}}
+        <tr>
+          <td>
+            {{user.handle}}
+          </td>
+          <td>
+            {{link-to "Edit" "users.edit" user class='btn btn-xs btn-info'}}
+          </td>
+          <td>
+            {{link-to "Show" "users.show" user class='btn btn-xs btn-default'}}
+          </td>
+          <td>
+            <a href="#" {{action "remove" user}} class='btn btn-xs btn-danger'>Remove</a>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  <p id="blankslate">
+    No Users found
+  </p>
+{{/if}}

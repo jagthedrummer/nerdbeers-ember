@@ -2,6 +2,7 @@ import Ember from "ember";
 
 export default Ember.Object.extend({
   open: function(authorization) {
+    console.log('open',authorization);
     // This is what should be done after authentication. As an example, I'm
     // finding current user here.
     let store = this.get("container").lookup("store:main");
@@ -10,6 +11,7 @@ export default Ember.Object.extend({
       return store.find("user", authorization.uid).then(function(user){
         Ember.run.bind(null, resolve({currentUser: user}));
       }, () => {
+        store.recordForId('user', authorization.uid).unloadRecord(); // remove the unresolved record
         let newUser = store.createRecord("user", {
           id: authorization.uid,
           handle: this._handleFor(authorization)
@@ -23,6 +25,7 @@ export default Ember.Object.extend({
   },
 
   fetch: function() {
+    console.log('fetch');
     // This is what should be done to determin how to fetch a session. Here I am
     // retrieving the auth from firebase and checking if I have a user for that
     // auth. If so, I set currentUser.
@@ -32,18 +35,23 @@ export default Ember.Object.extend({
 
     return new Ember.RSVP.Promise(function(resolve, reject) {
       if(authData) {
+        console.log('fetch authData = ',authData);
         store.find("user", authData.uid).then(function(user) {
+          console.log('hey we found a user',user);
           Ember.run.bind(null, resolve({currentUser: user}));
         }, function() {
+          console.log('hmm no session 1');
           Ember.run.bind(null, reject("no session"));
         });
       } else {
+        console.log('hmm no session 2');
         Ember.run.bind(null, reject("no session"));
       }
     });
   },
 
   close: function() {
+    console.log('close');
     // This is what should be done to teardown a session. Here I am unloading my
     // models and setting currentUser to null.
     let firebase = this.get("container").lookup("adapter:application").firebase;
@@ -51,7 +59,7 @@ export default Ember.Object.extend({
 
     return new Ember.RSVP.Promise(function(resolve) {
       store.unloadAll("user");
-      store.unloadAll("message");
+      //store.unloadAll("message");
       firebase.unauth();
       resolve({currentUser: null});
     });

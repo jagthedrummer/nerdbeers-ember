@@ -11,9 +11,15 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
+            {{#if session.isAuthenticated}}
             <li>{{#link-to 'locations'}}Locations{{/link-to}}</li>
             <li>{{#link-to 'meetings'}}Meetings{{/link-to}}</li>
             <li>{{#link-to 'pairings'}}Pairings{{/link-to}}</li>
+            <li>{{#link-to 'users'}}Users{{/link-to}}</li>
+            <li><a {{action "logout"}} href='#'>Logout</a></li>
+            {{else}}
+            
+            {{/if}}
           </ul>
           <!--
           <form class="navbar-form navbar-right">
@@ -29,10 +35,13 @@
       {{#if session.isAuthenticated}}
         {{liquid-outlet}}
       {{else}}
+        <p>&nbsp;</p>
         <button {{action "signIn" "github"}}>Sign in with github</button>
+        <!--
         <button {{action "signIn" "facebook"}}>Sign in with facebook</button>
         <button {{action "signIn" "twitter"}}>Sign in with twitter</button>
         <button {{action "signIn" "google"}}>Sign in with google</button>
+        -->
       {{/if}}
       <!--
       <div class="row">

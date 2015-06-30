@@ -41,4 +41,15 @@ export default Router.map(function() {
       path: ":pairing_id"
     });
   });
+
+  this.resource("users", function() {
+
+    this.route("edit", {
+      path: ":user_id/edit"
+    });
+
+    this.route("show", {
+      path: ":user_id"
+    });
+  });
 });

@@ -4,7 +4,16 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'nerdbeers-ember',
     environment: environment,
-    contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
+    contentSecurityPolicy: {
+      //'default-src': "'none'",
+      'script-src': "'self' 'unsafe-inline' https://*.firebaseio.com",
+      //'font-src': "'self'",
+      'connect-src': "'self' wss://*.firebaseio.com"
+      //'img-src': "'self' http://images0.cloudhdr.com http://images1.cloudhdr.com http://images2.cloudhdr.com http://images3.cloudhdr.com",
+      //'style-src': "'self' 'unsafe-inline'",
+      //'media-src': "'self'"
+    },
+
     firebase: 'https://nerdbeers.firebaseio.com/',
     torii: {
       // a 'session' property will be injected on routes and controllers
