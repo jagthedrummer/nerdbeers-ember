@@ -18,7 +18,7 @@ export default Ember.Object.extend({
         });
 
         newUser.save().then(function(user) {
-          Ember.run.bind(null, resolve({currentUser: user}));
+          Ember.run.bind(null, resolve({currentUser: user, foo: 'baz'}));
         });
       });
     });
@@ -38,7 +38,7 @@ export default Ember.Object.extend({
         console.log('fetch authData = ',authData);
         store.find("user", authData.uid).then(function(user) {
           console.log('hey we found a user',user);
-          Ember.run.bind(null, resolve({currentUser: user}));
+          Ember.run.bind(null, resolve({currentUser: user, foo: 'baz'}));
         }, function() {
           console.log('hmm no session 1');
           Ember.run.bind(null, reject("no session"));
